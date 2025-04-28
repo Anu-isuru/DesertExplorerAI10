@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro; 
 
 
@@ -21,8 +21,13 @@ public class ExplorerStateManager : MonoBehaviour
 
     public TextMeshProUGUI messageText;
 
+    private Transform dangerSource;
+
+    private Animator animator;
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
         currentState = ExplorerState.Idle; // Start in Idle
     }
 
@@ -77,12 +82,6 @@ public class ExplorerStateManager : MonoBehaviour
         RandomMovement(); // Same random movement
     }
 
-    void RunFromDanger()
-    {
-        // Example: Move quickly away from danger
-        transform.Translate(Vector2.left * 2 * Time.deltaTime);
-    }
-
     void Die()
     {
         Debug.Log("Explorer died.");
@@ -93,9 +92,6 @@ public class ExplorerStateManager : MonoBehaviour
             gameOverText.gameObject.SetActive(true);
         }
     }
-
-
-
     void Celebrate()
     {
         Debug.Log("Explorer survived!");
@@ -131,6 +127,15 @@ public class ExplorerStateManager : MonoBehaviour
 
         // Move in the current random direction
         transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
+
+        if (animator != null)
+        {
+            animator.SetFloat("MoveX", randomDirection.x);
+            animator.SetFloat("MoveY", randomDirection.y);
+            animator.SetFloat("Speed", randomDirection.sqrMagnitude); // Optional if you use Speed for idle detection
+        }
+
+
     }
     void CheckVision()
     {
@@ -152,8 +157,31 @@ public class ExplorerStateManager : MonoBehaviour
                 if (messageText != null)
                     messageText.text = "Enemy spotted!";
                 currentState = ExplorerState.Danger;
+
+                dangerSource = hit.transform; // ✅ Save the enemy transform
             }
         }
+    }
+    void RunFromDanger()
+    {
+        if (dangerSource == null)
+        {
+            currentState = ExplorerState.Walk;
+            return;
+        }
+
+        float distanceFromDanger = Vector2.Distance(transform.position, dangerSource.position);
+
+        if (distanceFromDanger > visionRange * 2f) // Safe distance
+        {
+            dangerSource = null; // Forget the enemy
+            currentState = ExplorerState.Walk;
+            return;
+        }
+
+        // Still in danger, run away
+        Vector2 directionAway = (transform.position - dangerSource.position).normalized;
+        transform.Translate(directionAway * moveSpeed * 1.5f * Time.deltaTime);
     }
 
 
