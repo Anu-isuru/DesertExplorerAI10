@@ -25,16 +25,31 @@ public class ExplorerStateManager : MonoBehaviour
 
     private Animator animator;
 
+    private bool isSandstorm = false;
+    private float sandstormTimer = 0f;
+    [SerializeField]
+    private float timeBetweenSandstorms = 15f; // Every 15 seconds possible
+    private float sandstormDuration = 5f; // Sandstorm lasts for 5 seconds
+
+    private float originalVisionRange; // To remember normal vision range
+
+    public GameObject sandstormOverlay;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         currentState = ExplorerState.Idle; // Start in Idle
+        originalVisionRange = visionRange;
+
+        if (sandstormOverlay != null)
+            sandstormOverlay.SetActive(false);
     }
 
     private void Update()
     {
         HandleState();
         CheckVision();
+        HandleSandstorm();
     }
 
     void HandleState()
@@ -134,14 +149,15 @@ public class ExplorerStateManager : MonoBehaviour
             animator.SetFloat("MoveY", randomDirection.y);
             animator.SetFloat("Speed", randomDirection.sqrMagnitude); // Optional if you use Speed for idle detection
         }
-
-
     }
     void CheckVision()
     {
-        if (messageText != null)
-            messageText.text = "Searching..."; // Reset message every frame first
-
+        if (!isSandstorm)
+        {
+            if (messageText != null)
+                messageText.text = "Searching..."; // Reset message every frame
+        }
+    
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, visionRange);
 
         foreach (var hit in hits)
@@ -183,6 +199,41 @@ public class ExplorerStateManager : MonoBehaviour
         Vector2 directionAway = (transform.position - dangerSource.position).normalized;
         transform.Translate(directionAway * moveSpeed * 1.5f * Time.deltaTime);
     }
+
+    void HandleSandstorm()
+    {
+        sandstormTimer += Time.deltaTime;
+
+        if (!isSandstorm && sandstormTimer > timeBetweenSandstorms)
+        {
+            // Start a new sandstorm
+            isSandstorm = true;
+            sandstormTimer = 0f;
+            visionRange = originalVisionRange * 0.5f; // Reduce vision by half
+            if (messageText != null)
+                messageText.text = "Sandstorm! Vision reduced!";
+
+            if (sandstormOverlay != null)
+                sandstormOverlay.SetActive(true); // Show storm effect
+            Debug.Log("Sandstorm started, overlay on");
+        }
+
+        if (isSandstorm && sandstormTimer > sandstormDuration)
+        {
+            // End sandstorm
+            isSandstorm = false;
+            sandstormTimer = 0f;
+            visionRange = originalVisionRange; // Restore normal vision
+            if (messageText != null)
+                messageText.text = "Searching...";
+
+            if (sandstormOverlay != null)
+                sandstormOverlay.SetActive(false); // Hide storm effect
+            Debug.Log("Sandsorm Ended, Overlay is off");
+        }
+    }
+
+
 
 
 
