@@ -35,6 +35,16 @@ public class ExplorerStateManager : MonoBehaviour
 
     public GameObject sandstormOverlay;
 
+    private bool isNight = false;
+    private float dayNightTimer = 0f;
+    private float dayDuration = 20f; // 20 seconds for day
+    private float nightDuration = 15f; // 15 seconds for night
+    private Camera mainCamera; // to change background color
+
+    public GameObject sunImage;
+    public GameObject moonImage;
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -43,6 +53,9 @@ public class ExplorerStateManager : MonoBehaviour
 
         if (sandstormOverlay != null)
             sandstormOverlay.SetActive(false);
+
+        mainCamera = Camera.main;
+        SetDay();
     }
 
     private void Update()
@@ -50,6 +63,8 @@ public class ExplorerStateManager : MonoBehaviour
         HandleState();
         CheckVision();
         HandleSandstorm();
+        HandleDayNightCycle();
+        UpdateVision();
     }
 
     void HandleState()
@@ -152,12 +167,18 @@ public class ExplorerStateManager : MonoBehaviour
     }
     void CheckVision()
     {
-        if (!isSandstorm)
+        // Only reset if no sandstorm and it's daytime
+        if (!isSandstorm && !isNight)
         {
             if (messageText != null)
-                messageText.text = "Searching..."; // Reset message every frame
+                messageText.text = "Searching...";
         }
-    
+        else if (isNight && !isSandstorm)
+        {
+            if (messageText != null)
+                messageText.text = "Nighttime: Harder to see!";
+        }
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, visionRange);
 
         foreach (var hit in hits)
@@ -173,8 +194,7 @@ public class ExplorerStateManager : MonoBehaviour
                 if (messageText != null)
                     messageText.text = "Enemy spotted!";
                 currentState = ExplorerState.Danger;
-
-                dangerSource = hit.transform; // ✅ Save the enemy transform
+                dangerSource = hit.transform; // Save the enemy transform
             }
         }
     }
@@ -223,7 +243,6 @@ public class ExplorerStateManager : MonoBehaviour
             // End sandstorm
             isSandstorm = false;
             sandstormTimer = 0f;
-            visionRange = originalVisionRange; // Restore normal vision
             if (messageText != null)
                 messageText.text = "Searching...";
 
@@ -232,9 +251,51 @@ public class ExplorerStateManager : MonoBehaviour
             Debug.Log("Sandsorm Ended, Overlay is off");
         }
     }
+    void SetDay()
+    {
+        isNight = false;
+        dayNightTimer = 0f;
+        if (mainCamera != null)
+            mainCamera.backgroundColor = new Color(0.5f, 0.8f, 1f); // Light blue sky
+       
+        if (sunImage != null) sunImage.SetActive(true);
+        if (moonImage != null) moonImage.SetActive(false);
+                
+        if (messageText != null)
+            messageText.text = "Daytime: Searching...";
+    }
 
+    void SetNight()
+    {
+        isNight = true;
+        dayNightTimer = 0f;
+        if (mainCamera != null)
+            mainCamera.backgroundColor = new Color(0.05f, 0.05f, 0.2f); // Dark blue night sky
+        
+        if (sunImage!= null) sunImage.SetActive(false);
+        if (moonImage != null) moonImage.SetActive (true);
 
+        if (messageText != null)
+            messageText.text = "Nighttime: Harder to see!";
+    }
 
+    void HandleDayNightCycle()
+    {
+        dayNightTimer += Time.deltaTime;
+
+        if (!isNight && dayNightTimer > dayDuration)
+        {
+            SetNight();
+        }
+        else if (isNight && dayNightTimer > nightDuration)
+        {
+            SetDay();
+        }
+    }
+        void UpdateVision()
+    {
+        visionRange = originalVisionRange * (isSandstorm ? 0.5f : 1f) * (isNight ? 0.6f : 1f);
+    }
 
 
 
