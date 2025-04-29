@@ -1,0 +1,427 @@
+Using pre-set license
+Built from '6000.0/release' branch; Version is '6000.0.44f1 (101c91f3a8fb) revision 1055889'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Professional' Language: 'en' Physical Memory: 20206 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+E:/Unity/Project2DRPGGame
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+60188
+-job-worker-count
+3
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: E:/Unity/Project2DRPGGame
+E:/Unity/Project2DRPGGame
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [18488]  Target information:
+
+Player connection [18488]  * "[IP] 192.168.4.91 [Port] 0 [Flags] 2 [Guid] 1978102034 [EditorId] 1978102034 [Version] 1048832 [Id] WindowsEditor(7,Isu) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [18488] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [18488] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 3
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 1.63 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.44f1 (101c91f3a8fb)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Unity/Project2DRPGGame/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Vendor:   Intel
+    VRAM:     10103 MB
+    Driver:   31.0.101.5333
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56544
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.44f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002998 seconds.
+- Loaded All Assemblies, in  0.553 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.618 seconds
+Domain Reload Profiling: 1171ms
+	BeginReloadAssembly (166ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (258ms)
+		LoadAssemblies (165ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (252ms)
+			TypeCache.Refresh (249ms)
+				TypeCache.ScanAssembly (231ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (621ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (573ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (37ms)
+			SetLoadedEditorAssemblies (10ms)
+			BeforeProcessingInitializeOnLoad (129ms)
+			ProcessInitializeOnLoadAttributes (311ms)
+			ProcessInitializeOnLoadMethodAttributes (86ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.032 seconds
+Refreshing native plugins compatible for Editor in 1.56 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.896 seconds
+Domain Reload Profiling: 4827ms
+	BeginReloadAssembly (242ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (131ms)
+	RebuildNativeTypeToScriptingClass (29ms)
+	initialDomainReloadingComplete (114ms)
+	LoadAllAssembliesAndSetupDomain (2414ms)
+		LoadAssemblies (971ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1581ms)
+			TypeCache.Refresh (1334ms)
+				TypeCache.ScanAssembly (1277ms)
+			BuildScriptInfoCaches (214ms)
+			ResolveRequiredComponents (27ms)
+	FinalizeReload (1897ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1461ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (266ms)
+			ProcessInitializeOnLoadAttributes (941ms)
+			ProcessInitializeOnLoadMethodAttributes (235ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 2.68 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 220 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6611 unused Assets / (7.3 MB). Loaded Objects now: 7270.
+Memory consumption went from 172.5 MB to 165.2 MB.
+Total: 18.209500 ms (FindLiveObjects: 0.963200 ms CreateObjectMapping: 0.937800 ms MarkObjects: 8.058200 ms  DeleteObjects: 8.248200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 236829.300657 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_02.png
+  artifactKey: Guid(6d787713b24fd2e4f8d3d984ed213248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_02.png using Guid(6d787713b24fd2e4f8d3d984ed213248) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8238d53ffd61f8c9dd10241ece65dfd4') in 0.3144541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_03.png
+  artifactKey: Guid(a521ca1df2391944aae12600bd463d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_03.png using Guid(a521ca1df2391944aae12600bd463d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0b4ddb07ca989b557177271dd0391498') in 0.1044297 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_03.png
+  artifactKey: Guid(f90ffb265a0835c45b08bf518c318f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_03.png using Guid(f90ffb265a0835c45b08bf518c318f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e72203bd9f12aede94ec002cab500582') in 0.3019713 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_07.png
+  artifactKey: Guid(5bd5cff53199e8d499b7c94e601d4872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_07.png using Guid(5bd5cff53199e8d499b7c94e601d4872) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c56a9a8d640bee83e9f21b10a33a38b') in 0.0672461 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_05.png
+  artifactKey: Guid(ff1f60d85c52df248b874ea0ef989ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_05.png using Guid(ff1f60d85c52df248b874ea0ef989ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7b0202b420daf4ffbe927917ca1ff7a2') in 0.0811217 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_01.png
+  artifactKey: Guid(bf664b8173c41f240b4ad739e6165438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_01.png using Guid(bf664b8173c41f240b4ad739e6165438) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '170c47ed847e2e6ea1c257114f171a8c') in 0.1017242 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000108 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_06.png
+  artifactKey: Guid(71974d5d177539640b590d84392e70f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_06.png using Guid(71974d5d177539640b590d84392e70f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cff88832615f11464079aca757f22703') in 0.0796917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_07.png
+  artifactKey: Guid(c6d709260d17ba847810af9f6be87eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_07.png using Guid(c6d709260d17ba847810af9f6be87eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b5515ca484eeab3ea6cd6711dc4a4008') in 0.1103818 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_05.png
+  artifactKey: Guid(f851d99d9a2d0b943b3fecbe961117c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_05.png using Guid(f851d99d9a2d0b943b3fecbe961117c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'efc31ff1268924cccaca30cd690dc77f') in 0.0525119 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_07.png
+  artifactKey: Guid(f038da555f2d5ac42a3e3155494d1218) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/left_1HandWeaponAttack_07.png using Guid(f038da555f2d5ac42a3e3155494d1218) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2ef6551d4818b599329bf817f3e01b76') in 0.0749071 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_05.png
+  artifactKey: Guid(5c201532b08b4bc4c90a644a2dcb295b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_05.png using Guid(5c201532b08b4bc4c90a644a2dcb295b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fea27750e206343d9f46f784bd57f332') in 0.0970806 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_02.png
+  artifactKey: Guid(7a4801d61a6db764c99d4f84175ea45e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_02.png using Guid(7a4801d61a6db764c99d4f84175ea45e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c62fcecb0b2e3dcccbcfc8b11b0875f8') in 0.0586428 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_06.png
+  artifactKey: Guid(77f419a79918cc240a768fc8dce8ca27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_06.png using Guid(77f419a79918cc240a768fc8dce8ca27) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '37d5dede3f7181990cc3c3b530e731e2') in 0.0492653 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_05.png
+  artifactKey: Guid(74e219172d9da854da7d5ec69a84a8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_05.png using Guid(74e219172d9da854da7d5ec69a84a8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '99ba5bd0a3f176224afb827752d285b3') in 0.0691828 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_00.png
+  artifactKey: Guid(9bc9b10367963f24abf77a6806abec4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_00.png using Guid(9bc9b10367963f24abf77a6806abec4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b1c93c151eeb374bac6c52d1ffae907') in 0.0861129 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_04.png
+  artifactKey: Guid(657802f9770d5cb4a80c6cf0c96f42bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_04.png using Guid(657802f9770d5cb4a80c6cf0c96f42bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '50e0ecdfcc24c4381209eea9beb74778') in 0.2739725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_08.png
+  artifactKey: Guid(07ca11b009ada07428c2ee070832ff7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_08.png using Guid(07ca11b009ada07428c2ee070832ff7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '98bf70a95aad18f7272796b05185dc5d') in 0.1627369 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_04.png
+  artifactKey: Guid(aef5c2c4e4327e547b47fe2069cfed60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_04.png using Guid(aef5c2c4e4327e547b47fe2069cfed60) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '541c03d0f2e34988cbbf42a4ae53b8ba') in 0.0974624 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_01.png
+  artifactKey: Guid(b16d7563a225ba54c96a1a75dcbc65d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_01.png using Guid(b16d7563a225ba54c96a1a75dcbc65d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8cb475e7009740387a56b57a9f6b28b0') in 0.0608484 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_06.png
+  artifactKey: Guid(c3d439b6396b2e14788280f3f5adac7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_06.png using Guid(c3d439b6396b2e14788280f3f5adac7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '39b64f29f57dc484213d549a099371a3') in 0.0560206 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_04.png
+  artifactKey: Guid(b90e8081b1c58974695cbd2f67e789db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downRight_1HandWeaponAttack_04.png using Guid(b90e8081b1c58974695cbd2f67e789db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e34e1e088b5bcd765669a0279ea503f9') in 0.096185 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_03.png
+  artifactKey: Guid(43b8c675a2d20cc458004a3bfb31bc00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_03.png using Guid(43b8c675a2d20cc458004a3bfb31bc00) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7d280e455d60bfa20773d76992e9989c') in 0.0532295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_03.png
+  artifactKey: Guid(91e9419b0fb7cd249b3827e8d5848723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/right_1HandWeaponAttack_03.png using Guid(91e9419b0fb7cd249b3827e8d5848723) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '323733edd755a91ea435f68c3d6241cc') in 0.080359 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_00.png
+  artifactKey: Guid(e622a7accaf4bce43863496feb615f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_00.png using Guid(e622a7accaf4bce43863496feb615f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba11d6e8d28735a47f332ed0726161cd') in 0.0711125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_04.png
+  artifactKey: Guid(bc6b803fa4a63f64c875041afec3efec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_04.png using Guid(bc6b803fa4a63f64c875041afec3efec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '05b7f31d366cc1e56fdc31211520b880') in 0.2168982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_08.png
+  artifactKey: Guid(6486cefb5d1f28e439833d6f6c763765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_08.png using Guid(6486cefb5d1f28e439833d6f6c763765) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59b10103a327215c71c695dc0e7deaec') in 0.0601889 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_00.png
+  artifactKey: Guid(2459f1203766955439db55e3a77b42aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/upLeft_1HandWeaponAttack_00.png using Guid(2459f1203766955439db55e3a77b42aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '734088254f1d516365c0161e0c9f9041') in 0.1013329 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_04.png
+  artifactKey: Guid(3025d0d0684b97242ab42e210dd45974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/up_1HandWeaponAttack_04.png using Guid(3025d0d0684b97242ab42e210dd45974) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '325520299a117b185544415b61a26243') in 0.0931954 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_01.png
+  artifactKey: Guid(f9e257c58f0f5344f85fa441cfa490e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/down_1HandWeaponAttack_01.png using Guid(f9e257c58f0f5344f85fa441cfa490e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8ab8932b63b7f6d7a5856ff337d812f5') in 0.0757828 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_01.png
+  artifactKey: Guid(303d5eb1ef8678042bd31b9c8aef69c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Attack Sword And Shield/downLeft_1HandWeaponAttack_01.png using Guid(303d5eb1ef8678042bd31b9c8aef69c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fdf4bbc80c4ea191bd229ba1601d9a94') in 0.0819681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
