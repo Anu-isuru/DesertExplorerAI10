@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.SceneManagement;
+
 
 
 
@@ -44,6 +46,11 @@ public class ExplorerStateManager : MonoBehaviour
     public GameObject sunImage;
     public GameObject moonImage;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+
+    public TextMeshProUGUI healthText; // To show health on screen
+
 
     private void Start()
     {
@@ -56,6 +63,12 @@ public class ExplorerStateManager : MonoBehaviour
 
         mainCamera = Camera.main;
         SetDay();
+
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+
+        if (gameOverText != null)
+            gameOverText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -65,6 +78,7 @@ public class ExplorerStateManager : MonoBehaviour
         HandleSandstorm();
         HandleDayNightCycle();
         UpdateVision();
+
     }
 
     void HandleState()
@@ -121,6 +135,7 @@ public class ExplorerStateManager : MonoBehaviour
             gameOverText.text = "Game Over!";
             gameOverText.gameObject.SetActive(true);
         }
+        Invoke("RestartGame", 3f); //restart the game after 3 seconds
     }
     void Celebrate()
     {
@@ -218,6 +233,8 @@ public class ExplorerStateManager : MonoBehaviour
         // Still in danger, run away
         Vector2 directionAway = (transform.position - dangerSource.position).normalized;
         transform.Translate(directionAway * moveSpeed * 1.5f * Time.deltaTime);
+        //take damage while close to the enemy
+        TakeDamage(1);
     }
 
     void HandleSandstorm()
@@ -297,6 +314,39 @@ public class ExplorerStateManager : MonoBehaviour
         visionRange = originalVisionRange * (isSandstorm ? 0.5f : 1f) * (isNight ? 0.6f : 1f);
     }
 
+    void UpdateHealthUI()
+    {
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + currentHealth;
+        }
+    }
+
+    void TakeDamage(int damageAmount)
+    {
+        if (currentHealth <= 0)
+            return; // Already dead, no more damage
+
+        currentHealth -= damageAmount;
+        if (currentHealth < 0)
+            currentHealth = 0;
+
+        UpdateHealthUI();
+
+        if (currentHealth == 0)
+        {
+            currentState = ExplorerState.Dead; // Move to Dead state
+            if (animator != null)
+                animator.SetTrigger("Die"); // Play dying animation!
+
+            Die();
+        }
+    }
+    void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.
+            GetActiveScene().buildIndex);
+    }
 
 
 }
