@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 
@@ -30,8 +31,8 @@ public class ExplorerStateManager : MonoBehaviour
     private bool isSandstorm = false;
     private float sandstormTimer = 0f;
     [SerializeField]
-    private float timeBetweenSandstorms = 15f; // Every 15 seconds possible
-    private float sandstormDuration = 5f; // Sandstorm lasts for 5 seconds
+    private float timeBetweenSandstorms = 20f; // Every 15 seconds possible
+    private float sandstormDuration = 10f; // Sandstorm lasts for 5 seconds
 
     private float originalVisionRange; // To remember normal vision range
 
@@ -39,7 +40,7 @@ public class ExplorerStateManager : MonoBehaviour
 
     private bool isNight = false;
     private float dayNightTimer = 0f;
-    private float dayDuration = 20f; // 20 seconds for day
+    private float dayDuration = 30f; // 20 seconds for day
     private float nightDuration = 15f; // 15 seconds for night
     private Camera mainCamera; // to change background color
 
@@ -51,6 +52,13 @@ public class ExplorerStateManager : MonoBehaviour
 
     public TextMeshProUGUI healthText; // To show health on screen
 
+    public GameObject sandstormParticles;
+
+    private CanvasGroup sandstormCanvasGroup;
+
+    public GameObject nightOverlay;
+    private CanvasGroup nightCanvasGroup;
+
 
     private void Start()
     {
@@ -59,7 +67,16 @@ public class ExplorerStateManager : MonoBehaviour
         originalVisionRange = visionRange;
 
         if (sandstormOverlay != null)
-            sandstormOverlay.SetActive(false);
+        {
+            sandstormCanvasGroup = sandstormOverlay.GetComponent<CanvasGroup>();
+            sandstormOverlay.SetActive(true); // Ensure it's active
+            if (sandstormCanvasGroup != null)
+                sandstormCanvasGroup.alpha = 0f; // Fully transparent initially
+        }
+
+        if (sandstormParticles != null)
+            sandstormParticles.SetActive(false);
+
 
         mainCamera = Camera.main;
         SetDay();
@@ -68,7 +85,19 @@ public class ExplorerStateManager : MonoBehaviour
         UpdateHealthUI();
 
         if (gameOverText != null)
+        {
             gameOverText.gameObject.SetActive(false);
+        }
+
+        if (nightOverlay != null)
+        {
+            nightCanvasGroup = nightOverlay.GetComponent<CanvasGroup>();
+            nightOverlay.SetActive(true); // make sure it's active
+            if (nightCanvasGroup != null)
+            {
+                nightCanvasGroup.alpha = 0f; // fully transparent at start
+            }
+        }
     }
 
     private void Update()
@@ -132,8 +161,7 @@ public class ExplorerStateManager : MonoBehaviour
         canMove = false;
         if (gameOverText != null)
         {
-            gameOverText.text = "Game Over!";
-            gameOverText.gameObject.SetActive(true);
+            ShowMessage(gameOverText, "Game Over");
         }
         Invoke("RestartGame", 3f); //restart the game after 3 seconds
     }
@@ -144,7 +172,6 @@ public class ExplorerStateManager : MonoBehaviour
         if (gameOverText != null)
         {
             gameOverText.text = "You Found the Oasis!";
-            gameOverText.gameObject.SetActive(true);
         }
     }
 
@@ -247,12 +274,15 @@ public class ExplorerStateManager : MonoBehaviour
             isSandstorm = true;
             sandstormTimer = 0f;
             visionRange = originalVisionRange * 0.5f; // Reduce vision by half
+           
             if (messageText != null)
                 messageText.text = "Sandstorm! Vision reduced!";
 
             if (sandstormOverlay != null)
-                sandstormOverlay.SetActive(true); // Show storm effect
-            Debug.Log("Sandstorm started, overlay on");
+                StartCoroutine(FadeCanvas(sandstormCanvasGroup, 1f, 1f));
+
+            if (sandstormParticles != null)
+                sandstormParticles.SetActive(true);
         }
 
         if (isSandstorm && sandstormTimer > sandstormDuration)
@@ -260,12 +290,16 @@ public class ExplorerStateManager : MonoBehaviour
             // End sandstorm
             isSandstorm = false;
             sandstormTimer = 0f;
+            visionRange = originalVisionRange;
+
             if (messageText != null)
                 messageText.text = "Searching...";
 
             if (sandstormOverlay != null)
-                sandstormOverlay.SetActive(false); // Hide storm effect
-            Debug.Log("Sandsorm Ended, Overlay is off");
+                StartCoroutine(FadeCanvas(sandstormCanvasGroup, 0f, 1f));
+
+            if (sandstormParticles != null)
+                sandstormParticles.SetActive(false);
         }
     }
     void SetDay()
@@ -280,6 +314,9 @@ public class ExplorerStateManager : MonoBehaviour
                 
         if (messageText != null)
             messageText.text = "Daytime: Searching...";
+
+        if (nightCanvasGroup != null)
+            StartCoroutine(FadeCanvas(nightCanvasGroup, 0f, 1f)); // fade out
     }
 
     void SetNight()
@@ -294,6 +331,9 @@ public class ExplorerStateManager : MonoBehaviour
 
         if (messageText != null)
             messageText.text = "Nighttime: Harder to see!";
+
+        if (nightCanvasGroup != null)
+            StartCoroutine(FadeCanvas(nightCanvasGroup, 1f, 1f)); // fade in
     }
 
     void HandleDayNightCycle()
@@ -346,6 +386,30 @@ public class ExplorerStateManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.
             GetActiveScene().buildIndex);
+    }
+    void ShowMessage(TextMeshProUGUI textElement, string message)
+    {
+        if (textElement != null)
+        {
+            textElement.text = message;
+            if (!textElement.gameObject.activeSelf)
+                textElement.gameObject.SetActive(true);
+        }
+    }
+
+    IEnumerator FadeCanvas(CanvasGroup canvas, float targetAlpha, float duration)
+    {
+        float startAlpha = canvas.alpha;
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            canvas.alpha = Mathf.Lerp(startAlpha, targetAlpha, timer / duration);
+            yield return null;
+        }
+
+        canvas.alpha = targetAlpha;
     }
 
 
