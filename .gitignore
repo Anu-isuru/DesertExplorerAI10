@@ -3,10 +3,9 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-[Uu]serSettings/
+UserSettings/
 MemoryCaptures/
-.vs/
-.idea/
+Logs/
 *.csproj
 *.unityproj
 *.sln
@@ -19,3 +18,5 @@ MemoryCaptures/
 *.svd
 *.pdb
 *.mdb
+.vs/
+.idea/

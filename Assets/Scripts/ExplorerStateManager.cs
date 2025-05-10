@@ -18,7 +18,7 @@ public class ExplorerStateManager : MonoBehaviour
     private float changeDirectionTime = 2f; // how often to pick new random direction
     private float directionTimer;
 
-    private bool canMove = true;
+    private bool canMove = false;
 
     public TextMeshProUGUI gameOverText;
 
@@ -59,8 +59,10 @@ public class ExplorerStateManager : MonoBehaviour
     public GameObject nightOverlay;
     private CanvasGroup nightCanvasGroup;
 
+    private float damageCooldown = 1f; // 1 second between hits
+    private float lastDamageTime = -1f; // time of last hit
 
-    private void Start()
+        private void Start()
     {
         animator = GetComponent<Animator>();
         currentState = ExplorerState.Idle; // Start in Idle
@@ -115,31 +117,30 @@ public class ExplorerStateManager : MonoBehaviour
         switch (currentState)
         {
             case ExplorerState.Idle:
-                // Just stay idle
+                UpdateMessage("Idle");
                 break;
 
             case ExplorerState.Walk:
-                // Move around randomly
+                UpdateMessage("Walking...");
                 WalkAround();
                 break;
 
             case ExplorerState.Search:
-                // Searching behavior
+                UpdateMessage("Searching...");
                 SearchForWater();
                 break;
 
             case ExplorerState.Danger:
-                // Run or hide
+                UpdateMessage("Enemy spotted!!");
                 RunFromDanger();
                 break;
 
             case ExplorerState.Dead:
-                // Stop everything
                 Die();
                 break;
 
             case ExplorerState.Success:
-                // Celebrate or finish
+                UpdateMessage("Water Found");
                 Celebrate();
                 break;
         }
@@ -173,6 +174,12 @@ public class ExplorerStateManager : MonoBehaviour
         {
             gameOverText.text = "You Found the Oasis!";
         }
+    }
+
+    void UpdateMessage(string msg)
+    {
+        if (messageText != null)
+            messageText.text = msg;
     }
 
 
@@ -209,32 +216,16 @@ public class ExplorerStateManager : MonoBehaviour
     }
     void CheckVision()
     {
-        // Only reset if no sandstorm and it's daytime
-        if (!isSandstorm && !isNight)
-        {
-            if (messageText != null)
-                messageText.text = "Searching...";
-        }
-        else if (isNight && !isSandstorm)
-        {
-            if (messageText != null)
-                messageText.text = "Nighttime: Harder to see!";
-        }
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, visionRange);
+         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, visionRange);
 
         foreach (var hit in hits)
         {
             if (hit.CompareTag("Water"))
             {
-                if (messageText != null)
-                    messageText.text = "Water found!";
                 currentState = ExplorerState.Success;
             }
             else if (hit.CompareTag("Enemy"))
             {
-                if (messageText != null)
-                    messageText.text = "Enemy spotted!";
                 currentState = ExplorerState.Danger;
                 dangerSource = hit.transform; // Save the enemy transform
             }
@@ -261,7 +252,11 @@ public class ExplorerStateManager : MonoBehaviour
         Vector2 directionAway = (transform.position - dangerSource.position).normalized;
         transform.Translate(directionAway * moveSpeed * 1.5f * Time.deltaTime);
         //take damage while close to the enemy
-        TakeDamage(1);
+        if (Time.time - lastDamageTime >= damageCooldown)
+        {
+            TakeDamage(1);
+            lastDamageTime = Time.time;
+        }
     }
 
     void HandleSandstorm()
